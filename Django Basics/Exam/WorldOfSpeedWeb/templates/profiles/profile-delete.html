@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+  <header>
+      <h1>
+        <!-- Navigation Bar -->
+      <a class="index-navigation" href="{% url 'index' %}"
+          ><span>World of Speed</span></a
+        ></h1>
+        <nav>
+            <a href="{% url 'catalogue' %}">Catalogue</a>
+            <a href="{% url 'create_car' %}">Create Car</a>
+            <a href="{% url 'profile_details'  %}">Profile</a>
+        </nav>
+    </header>
+
+  <section id="create-page" class="auth">
+
+      <div class="container">
+        <h1>Are you sure you want to delete your profile?</h1>
+          <!-- Delete Profile Form -->
+        <form id='delete' action="{% url 'delete_profile' pk=object.pk %}" method="post">>
+            {{ form }}
+        <!-- Confirm Button -->
+        <input class="btn submit" type="submit" value="Yes">
+            {% csrf_token %}
+        </form>
+      </div>
+    <!-- End Delete Profile Form -->
+  </section>
+{% endblock %}
