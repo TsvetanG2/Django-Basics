@@ -1,0 +1,22 @@
+{% load static %}
+
+<header>
+    <a id="logo" href="{% url 'index' %}">
+        <img id="logo-img" src="{% static 'images/logo-boeing.png' %}" alt="logo" />
+    </a>
+    <nav>
+        <div class="user">
+            {% if traveler %}
+                    <a href="{% url 'all-trips' %}">All Trips</a>
+                    <a href="{% url 'create-trip' %}">Share Trip</a>
+                    <a href="{% url 'details-traveler' traveler.id %}">Traveler's Profile</a>
+            {% endif %}
+        </div>
+
+        <div class="guest">
+            {% if not traveler %}
+                <a href="{% url 'create-traveler' %}">New Traveler's Profile</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>

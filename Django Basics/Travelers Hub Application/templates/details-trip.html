@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Trip Details - Travelers Hub{% endblock %}
+
+{% block content %}
+<main>
+    <section id="details">
+        <div id="details-wrapper">
+            <h2>Trip Details</h2>
+
+            <!-- Trip image -->
+            <img src="{{ trip.image_url|default:'https://cdn.pixabay.com/photo/2021/10/05/16/53/kimono-6683245_1280.jpg' }}" alt="{{ trip.destination }} img" />
+
+            <!-- Trip destination -->
+            <p id="details-title">{{ trip.destination }}</p>
+
+            <div id="info-wrapper">
+                <div id="details-description">
+
+                    <!-- Trip start date -->
+                    <p class="description">{{ trip.start_date|date:"D d M Y" }}</p>
+
+                    <!-- Trip duration -->
+                    <p>{{ trip.duration }} day/s</p>
+
+                    <!-- Trip summary -->
+                    <p>{{ trip.summary }}</p>
+                </div>
+
+                <!-- Edit and Delete buttons -->
+                <div id="action-buttons">
+                    <a href="/trips/{{ trip.pk }}/edit/" id="edit-btn">Edit</a>
+                    <a href="/trips/{{ trip.pk }}/delete/" id="delete-btn">Delete</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

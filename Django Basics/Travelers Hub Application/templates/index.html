@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Traveler's Hub{% endblock %}
+
+{% block content %}
+    <!-- Home page -->
+    <section id="home">
+        <h1 class="main-title">Wander, Explore, Share...</h1>
+        <img src="{% static 'images/logo-img-trip.png' %}" alt="Traveler's Hub Logo" class="logo-img">
+    <!-- If there is a traveler's profile -->
+        {% if traveler %}
+            
+        {% else %}
+
+        {% endif %}
+    </section>
+{% endblock %}
